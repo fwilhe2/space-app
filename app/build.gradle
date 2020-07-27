@@ -6,19 +6,6 @@ apply plugin: 'io.fabric'
 apply plugin: 'kotlin-kapt'
 
 android {
-    signingConfigs {
-        config {
-            final def keystoreFile = file(System.getenv("SPACE_APP_KEYSTORE_PATH"))
-            if (keystoreFile.exists()) {
-                storeFile keystoreFile
-                storePassword System.getenv("SPACE_APP_KEYSTORE_PASSWORD")
-                keyAlias "StarlinerKey"
-                keyPassword System.getenv("SPACE_APP_KEY_PASSWORD")
-            } else {
-                println "couldn't find keystore file: " + keystoreFile.path
-            }
-        }
-    }
     compileSdkVersion 29
     buildToolsVersion '29.0.3'
     defaultConfig {
